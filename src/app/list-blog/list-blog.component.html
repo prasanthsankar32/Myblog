@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-lg-12">
+       <a class="btn btn-primary" routerLink="../../dashboard/create">Add Blog</a>
+    </div>
+</div>
+<table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let blog of blogList;let i = index;">
+            <th scope="row">{{i + 1}}</th>
+            <td>{{blog.title}}</td>
+            <td>{{blog.author}}</td>
+            <td>
+                <a routerLink="../../dashboard/edit/{{blog.id}}" class="btn btn-primary btn-sm">Edit</a>
+                <button (click)="deleteBlog(blog.id)" class="btn btn-danger btn-sm">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
